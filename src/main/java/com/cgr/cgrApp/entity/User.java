@@ -40,4 +40,8 @@ public class User {
         createdAt = new Date();
     }
 
+    private String identificactionNumber;
+
+    private String number;
+
 }

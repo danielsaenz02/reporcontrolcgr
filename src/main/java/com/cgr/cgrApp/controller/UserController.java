@@ -7,11 +7,13 @@ import com.cgr.cgrApp.service.UserService;
 import com.cgr.cgrApp.validator.Control;
 import com.cgr.cgrApp.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/user")
@@ -61,6 +63,11 @@ public class UserController {
         } catch (BadRequestCustom badMessage) {
             return new ResponseEntity<>(badMessage.getMessage(), HttpStatus.BAD_REQUEST);
         }
+    }
+    @GetMapping("/userIdentification/{identificationNumber}")
+    public ResponseEntity<?> findByIdentificationNumber(@PathVariable String identificationNumber){
+        User user = userService.findByIdentificationNumber(identificationNumber);
+        return new ResponseEntity<User>(user,HttpStatus.OK);
     }
 
 }

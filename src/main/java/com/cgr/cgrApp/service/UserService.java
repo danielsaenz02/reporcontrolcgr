@@ -27,4 +27,7 @@ public class UserService {
     }
 
     public Optional<User> findByEmail (String email){ return iUserRepository.findByEmail(email);}
+
+    public User findByIdentificationNumber (String identificationNumber){ return iUserRepository.findByIdentificactionNumber(identificationNumber);}
+
 }

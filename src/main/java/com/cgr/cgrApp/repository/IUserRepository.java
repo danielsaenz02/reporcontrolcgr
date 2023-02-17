@@ -13,4 +13,9 @@ public interface IUserRepository extends JpaRepository<User,Long> {
 
     @Query("SELECT u FROM Users u WHERE u.email = :email")
     Optional<User> findByEmail(@Param("email") String email);
+
+    @Query("SELECT u FROM Users u WHERE u.identificactionNumber = :identificationNumber")
+    User findByIdentificactionNumber(@Param("identificationNumber") String identificationNumber);
+
+
 }
