@@ -29,14 +29,13 @@ public class FileController {
     @Autowired
     private ComplaintService complaintService;
     @PostMapping("/upload/{idComplaint}")
-    public ResponseEntity<String> uploadFile(@RequestParam("files") MultipartFile[] files, @PathVariable Integer idComplaint){
+    public ResponseEntity<String> uploadFile(@RequestPart("files") MultipartFile[] files, @PathVariable Integer idComplaint){
         String message = "";
         try {
         List<String> fileNames = new ArrayList<>();
         Arrays.asList(files).stream().forEach(file -> {
             try {
                 String nameFile = iFileService.uploadFileAzure(file.getOriginalFilename(),file.getInputStream(), file.getSize(), idComplaint);
-                fileNames.add(file.getOriginalFilename());
                 anexoService.saveAnexo(idComplaint,nameFile);
             }
             catch (IOException e) {
