@@ -67,7 +67,7 @@ public class UserController {
     @GetMapping("/userIdentification/{identificationNumber}")
     public ResponseEntity<?> findByIdentificationNumber(@PathVariable String identificationNumber) throws Exception {
         try {
-            User user = userService.findByIdentificationNumber(identificationNumber).orElseThrow(() -> new BadRequestCustom("El número de indentificación no se encuentra registrado. Por favor intentelo de nuevo y verifique el numero de identifiación."));
+            User user = userService.findByIdentificationNumber(identificationNumber).orElseThrow(() -> new BadRequestCustom("Por favor diligencie el número de identificación asociado a su solicitud con la Contraloría."));
             return new ResponseEntity<User>(user,HttpStatus.OK);
         }catch (BadRequestCustom badMessage) {
             return new ResponseEntity<>(badMessage.getMessage(), HttpStatus.BAD_REQUEST);
