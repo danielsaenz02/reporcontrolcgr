@@ -44,4 +44,9 @@ public class User {
 
     private String number;
 
+    private String typeRequest;
+
+    private String filedNumber;
+
+
 }
