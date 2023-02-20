@@ -24,7 +24,7 @@ public class Complaint {
 
     private String facts;
 
-    private String entidad;
+    private String entity;
 
     private String municipality;
 
