@@ -24,18 +24,9 @@ public class Complaint {
 
     private String facts;
 
+    private String entidad;
 
-
-    @ManyToOne(fetch = FetchType.LAZY) // Relación con la clase Rol
-    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-    @JoinColumn(name = "Municipality_Id", referencedColumnName = "id")
-    private Municipality municipality;
-
-    private String people_involved;
-    @ManyToOne(fetch = FetchType.LAZY) // Relación con la clase Rol
-    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-    @JoinColumn(name = "Entity_Id", referencedColumnName = "id")
-    private Entidad entidad;
+    private String municipality;
 
     private String name_othr_entity;
 
@@ -44,4 +35,6 @@ public class Complaint {
     private Integer verification_code;
 
     private String status;
+
+    private String filed_number;
 }
