@@ -86,7 +86,7 @@ public class UserController {
     @PostMapping("/form/create")
     public ResponseEntity<?> saveForm(@RequestBody Form form){
         Form form1 = formService.save(form);
-        return new ResponseEntity<Form>(form1, HttpStatus.OK);
+        return new ResponseEntity<>(form1, HttpStatus.OK);
     }
 
 }
