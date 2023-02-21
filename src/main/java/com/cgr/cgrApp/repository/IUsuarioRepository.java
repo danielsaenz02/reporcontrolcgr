@@ -12,5 +12,5 @@ import java.util.Optional;
 @Repository
 public interface IUsuarioRepository extends JpaRepository<Usuario,Long> {
     @Query("SELECT u FROM Usuario u WHERE u.identificaction_number = :identificationNumber")
-    Optional<Usuario> findByIdentificactionNumber(@Param("identificationNumber") String identificationNumber);
+    Optional<Usuario> findByIdentificationNumber(@Param("identificationNumber") String identificationNumber);
 }
