@@ -1,9 +1,13 @@
 package com.cgr.cgrApp.controller;
 
+import com.cgr.cgrApp.entity.Form;
 import com.cgr.cgrApp.entity.User;
+import com.cgr.cgrApp.entity.Usuario;
 import com.cgr.cgrApp.exception.BadRequestCustom;
 import com.cgr.cgrApp.exception.ConflictException;
+import com.cgr.cgrApp.service.FormService;
 import com.cgr.cgrApp.service.UserService;
+import com.cgr.cgrApp.service.UsuarioService;
 import com.cgr.cgrApp.validator.Control;
 import com.cgr.cgrApp.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +26,10 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private UsuarioService usuarioService;
+    @Autowired
+    private FormService formService;
 
     @GetMapping("/listar")
     public ResponseEntity<List<User>> getAllUsers(){
@@ -67,11 +75,18 @@ public class UserController {
     @GetMapping("/userIdentification/{identificationNumber}")
     public ResponseEntity<?> findByIdentificationNumber(@PathVariable String identificationNumber) throws Exception {
         try {
-            User user = userService.findByIdentificationNumber(identificationNumber).orElseThrow(() -> new BadRequestCustom("Por favor diligencie el número de identificación asociado a su solicitud con la Contraloría."));
-            return new ResponseEntity<User>(user,HttpStatus.OK);
+            Usuario  usuario = usuarioService.findByIdentificationNumber(identificationNumber).orElseThrow(() -> new BadRequestCustom("Por favor diligencie el número de identificación asociado a su solicitud con la Contraloría."));
+            return new ResponseEntity<Usuario>(usuario,HttpStatus.OK);
         }catch (BadRequestCustom badMessage) {
             return new ResponseEntity<>(badMessage.getMessage(), HttpStatus.BAD_REQUEST);
         }
+    }
+
+
+    @PostMapping("/form/create")
+    public ResponseEntity<?> saveForm(@RequestBody Form form) throws Exception{
+        Form form1 = formService.save(form);
+        return new ResponseEntity<Form>(form1, HttpStatus.OK);
     }
 
 }
