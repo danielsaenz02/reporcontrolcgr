@@ -1,6 +1,6 @@
 package com.cgr.cgrApp.repository;
 
-import com.cgr.cgrApp.entity.User;
+
 import com.cgr.cgrApp.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
