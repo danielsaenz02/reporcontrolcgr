@@ -28,5 +28,7 @@ public class Usuario {
 
     private String filedNumber;
 
+    private String correo;
+
 
 }
