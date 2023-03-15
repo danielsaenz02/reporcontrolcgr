@@ -24,6 +24,7 @@ public class Complaint {
 
     private String facts;
 
+
     private String entity;
 
     private String municipality;
@@ -36,5 +37,16 @@ public class Complaint {
 
     private String status;
 
-    private String filed_number;
+    private String field_number;
+
+    private String contract_number;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = true)
+    private Date createdAt;
+
+    @PrePersist
+    private void onCrete(){
+        createdAt = new Date();
+    }
 }

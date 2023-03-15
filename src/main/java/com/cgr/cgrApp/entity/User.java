@@ -22,31 +22,22 @@ public class User {
 
     private String name;
 
-    private String password;
-
     private String email;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = true)
     private Date createdAt;
 
     private String status;
-    @ManyToOne(fetch = FetchType.LAZY) // Relación con la clase Rol
-    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-    @JoinColumn(name = "Rol_id", referencedColumnName = "id")
-    private Rol rol;
+    private String identificationNumber;
+
+    private String number;
 
     @PrePersist
     private void onCrete(){
         createdAt = new Date();
     }
 
-    private String identificactionNumber;
 
-    private String number;
-
-    private String typeRequest;
-
-    private String filedNumber;
 
 
 }

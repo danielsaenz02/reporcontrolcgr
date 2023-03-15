@@ -22,13 +22,13 @@ public class Usuario {
 
     private String name;
 
-    private String identificaction_number;
+    private String identification_number;
 
     private String typeRequest;
 
-    private String filedNumber;
+    private String fieldNumber;
 
-    private String correo;
+    private String email;
 
 
 }

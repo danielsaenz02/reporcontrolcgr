@@ -1,11 +1,8 @@
 package com.cgr.cgrApp.controller;
 
-import com.cgr.cgrApp.entity.Anexo;
 import com.cgr.cgrApp.entity.Complaint;
-import com.cgr.cgrApp.entity.File;
-import com.cgr.cgrApp.repository.IAnexoService;
 import com.cgr.cgrApp.repository.IFileService;
-import com.cgr.cgrApp.service.AnexoService;
+import com.cgr.cgrApp.service.AnnexeService;
 import com.cgr.cgrApp.service.ComplaintService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +22,7 @@ public class FileController {
     @Autowired
     private IFileService iFileService;
     @Autowired
-    private AnexoService anexoService;
+    private AnnexeService anexoService;
     @Autowired
     private ComplaintService complaintService;
     @PostMapping("/upload/{idComplaint}")

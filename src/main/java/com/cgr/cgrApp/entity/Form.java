@@ -19,7 +19,7 @@ public class Form {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String identificaction_number;
+    private String identification_number;
 
     private String status;
 

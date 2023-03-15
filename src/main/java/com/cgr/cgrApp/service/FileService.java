@@ -1,6 +1,5 @@
 package com.cgr.cgrApp.service;
 
-import com.cgr.cgrApp.entity.File;
 import com.cgr.cgrApp.repository.IFileService;
 import com.microsoft.azure.storage.CloudStorageAccount;
 import com.microsoft.azure.storage.blob.CloudBlob;
@@ -9,7 +8,6 @@ import com.microsoft.azure.storage.blob.CloudBlobContainer;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
-import java.util.Base64;
 
 @Service
 public class FileService implements IFileService {
